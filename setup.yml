@@ -1,0 +1,36 @@
+session_name: '0'
+windows:
+- layout: a802,174x39,0,0[174x13,0,0,4,174x12,0,14,7,174x12,0,27,8]
+  options: {}
+  panes:
+  - focus: 'true'
+    shell_command: bash
+  - bash
+  - bash
+  start_directory: /documentation/notes/scans
+  window_name: reconnaissance
+- layout: 44e6,174x39,0,0{87x39,0,0,5,86x39,88,0[86x19,88,0,9,86x19,88,20,10]}
+  options: {}
+  panes:
+  - focus: 'true'
+    shell_command: bash
+  - bash
+  - bash
+  start_directory: /documentation/notes/analysis
+  window_name: exploitation
+- layout: d043,174x39,0,0,6
+  options: {}
+  panes:
+  - focus: 'true'
+    shell_command: bash
+  start_directory: /documentation/resume
+  window_name: documentation
+- focus: 'true'
+  layout: 6850,174x39,0,0,11
+  options: {}
+  panes:
+  - focus: 'true'
+    shell_command: python3
+  start_directory: /documentation
+  window_name: status
+
