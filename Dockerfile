@@ -3,7 +3,9 @@ MAINTAINER darccau <darccau@gmail.com>
 
 workdir documentation
 
-RUN apt-get update && apt-get install --yes --no-install-recommends vim \
+ARG DEBIAN_FRONTEND noninteractive
+
+RUN apt-get update && apt-get install --yes --no-install-recommends  vim \
 tmux \
 tmuxp \
 tcpdump \
