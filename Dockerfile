@@ -1,20 +1,17 @@
-FROM kalilinux/kali-rolling:2024.4
+FROM kalilinux/kali-rolling
 
 LABEL org.opencontainers.image.authors="darccau@gmail.com"
 LABEL org.opencontainers.image.title="Portable pentest container"
-LABEL org.opencontainers.image.description="A lightweight Kali Linux container pre-configured with tmux and curl."
+LABEL org.opencontainers.image.description="A lightweight Kali Linux container pre-configured with essential tools"
 
 ARG DEBIAN_FRONTEND=noninteractive
-ARG PACKAGES="vim curl ncat git iproute2 tmux"
+ARG PACKAGES="curl iproute2 ncat iputils-ping"
 
 WORKDIR /artifacts
 
+COPY setup.sh .
+
 RUN apt-get update && \
-  apt-get install --no-install-recommends --yes $PACKAGES && \
-  curl -o page.html https://example.com && \
-  rm -rf /var/lib/apt/lists/*
+  apt-get install --no-install-recommends --yes $PACKAGES
 
-USER pandora
-
-ENTRYPOINT ["tmux"]
-CMD ["new-session", "-s", "target"]
+ENTRYPOINT [ "/bin/bash" ]
